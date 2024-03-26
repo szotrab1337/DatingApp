@@ -1,12 +1,12 @@
 ﻿using API.Entities;
 using API.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
-    [ApiController]
-    [Route("api/[controller]")] // api/users
-    public class UsersController(IUsersService usersService) : ControllerBase
+    [Authorize]
+    public class UsersController(IUsersService usersService) : BaseApiController
     {
         private readonly IUsersService _usersService = usersService;
 
