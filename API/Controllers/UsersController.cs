@@ -11,6 +11,7 @@ namespace API.Controllers
         private readonly IUsersService _usersService = usersService;
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<AppUser>>> GetUsers()
         {
             var users = await _usersService.GetAll();
